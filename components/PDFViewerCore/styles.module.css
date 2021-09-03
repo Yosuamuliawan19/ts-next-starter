@@ -1,0 +1,6 @@
+.pdfController {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}

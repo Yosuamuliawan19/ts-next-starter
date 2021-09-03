@@ -1,0 +1,8 @@
+.logoName {
+  background: -webkit-linear-gradient(-70deg, #a2facf, #64acff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  font-family: 'Montserrat';
+  font-weight: 700;
+}

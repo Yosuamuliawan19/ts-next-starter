@@ -1,0 +1,16 @@
+.logoName {
+  /* background: -webkit-linear-gradient(-70deg, #a2facf, #64acff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone; */
+  font-family: 'Montserrat';
+  font-weight: 700;
+  color: black;
+}
+.divider {
+  width: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  height: 20px;
+  margin: auto 24px;
+  color: rgba(0, 0, 0, 0);
+}

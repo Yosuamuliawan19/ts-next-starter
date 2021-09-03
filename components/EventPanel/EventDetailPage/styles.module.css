@@ -1,0 +1,19 @@
+.eventImg {
+  width: 65%;
+  margin: 16px;
+  border-radius: 12px;
+  height: 600px;
+  object-fit: cover;
+}
+
+.eventDescription {
+  width: 35%;
+  height: fit-content;
+}
+.eventType {
+  color: rgba(0, 0, 0, 0.3);
+}
+.eventDate {
+  font-weight: bold;
+  color: #094067;
+}
