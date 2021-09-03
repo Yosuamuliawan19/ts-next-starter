@@ -5,7 +5,7 @@ export default function Home({ source }) {
   return (
     <>
       <Head>
-        <title>Kerja.io | Not found</title>
+        <title>Next TS Starter 🔥</title>
       </Head>{' '}
     </>
   );

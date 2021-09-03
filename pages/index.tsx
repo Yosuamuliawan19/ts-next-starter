@@ -7,7 +7,6 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { FcSearch } from 'react-icons/fc';
 import { Carousel } from 'react-responsive-carousel';
-import mixpanel from 'mixpanel-browser';
 import { useEffect } from 'react';
 import { ROUTES } from '@constants/routes';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
@@ -65,9 +64,7 @@ export default function Home() {
   const isMobile = useCheckMobileScreen();
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState();
-  useEffect(() => {
-    mixpanel.track('visit homepage');
-  }, []);
+
   const handleJobSearch = async (event: any) => {
     event.preventDefault();
     if (event.target[0]) {
@@ -80,7 +77,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Kerja.io | Empowering Indonesia’s brightest minds</title>
+        <title>Next TS Starter 🔥</title>
       </Head>
       <BaseLayout>
         <Navbar variant={'white'} />
@@ -172,7 +169,7 @@ export default function Home() {
                 gold.
               </p>
               <p className={'text-lg mt-4'}>
-                Kerja.io was born out of a desire to help exceptional people
+                ACME Inc was born out of a desire to help exceptional people
                 unlock new ways to grow themselves. Whether it’s helping you
                 find jobs, foster meaningful connections, or learn from industry
                 experts, we want to be your best friend throughout college.

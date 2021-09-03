@@ -176,7 +176,7 @@ export default function Home({ variant }) {
                 height={50}
               />
               {/* <div className={styles.logoName + ' ml-4 dark:text-white'}>
-                <div>Kerja.io</div>
+                <div>ACME Inc</div>
               </div> */}
             </div>
             <div className="justify-between">

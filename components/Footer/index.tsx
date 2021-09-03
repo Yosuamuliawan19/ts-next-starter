@@ -1,9 +1,9 @@
 import { AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
 
 const LINKS = {
-  INSTAGRAM: 'https://instagram.com/kerja.io',
+  INSTAGRAM: 'https://instagram.com/ACME Inc',
   LINKEDIN: 'https://www.linkedin.com/company/kerja-by-permias-nasional',
-  CONTACT: 'mailto:team@kerja.io',
+  CONTACT: 'mailto:team@ACME Inc',
   PRIVACY_POLICY: '/privacy',
   TERMS: '/terms',
 };
@@ -33,7 +33,7 @@ export default function Footer(props) {
             Privacy policy
           </a>
         </div>
-        <div className={classes.link}>©2021 Kerja.io All rights reserved.</div>
+        <div className={classes.link}>©2021 ACME Inc All rights reserved.</div>
       </div>
     </div>
   );
