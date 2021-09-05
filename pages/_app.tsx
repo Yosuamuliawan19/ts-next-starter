@@ -1,11 +1,10 @@
 import CommonMeta from '@components/CommonMeta';
 import ErrorBoundary from '@components/ErrorBoundary';
-import { AuthProvider } from '@context/Auth';
 import { IdProvider } from '@radix-ui/react-id';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
 
@@ -29,19 +28,35 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   }
   // }, [router.pathname]);
 
+  const [darkMode, setDarkMode] = useState('light');
+
+  const toggleDarkMode = () => {
+    if (darkMode === 'dark') {
+      localStorage.setItem('theme', 'light');
+      setDarkMode('light');
+    } else {
+      localStorage.setItem('theme', 'dark');
+      setDarkMode('dark');
+    }
+  };
+
   return (
     <div>
       <Head>
         <title>Next TS Starter 🔥</title>
         <CommonMeta />
       </Head>
-      <AuthProvider>
+      {/*<AuthProvider>*/}
+      <div className={darkMode}>
         <IdProvider>
+          Å
           <ErrorBoundary>
             <Component {...pageProps} />
           </ErrorBoundary>
         </IdProvider>
-      </AuthProvider>
+      </div>
+
+      {/*</AuthProvider>*/}
     </div>
   );
 }

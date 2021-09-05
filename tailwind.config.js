@@ -1,7 +1,7 @@
 module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
-  // mode: 'jit',
+  mode: 'jit',
   theme: {
     extend: {
       width: {
@@ -21,33 +21,13 @@ module.exports = {
         phoneBtn: '400px',
         phoneBtnMax: '90vw',
       },
-      colors: {
-        blue: {
-          light: '#85d7ff',
-          DEFAULT: '#1fb6ff',
-          dark: '#009eeb',
-        },
-        pastel: 'rgb(221, 243, 245)',
-        'indigo-dark': '#202e78',
-        'red-btn': '#C25151',
-        'red-btn-bg': '#E9C1C1',
-        'red-btn-hover': '#EECDCD',
-        'link-hover': 'rgba(0,0,0,0.05)',
-        glassSm: 'rgba(255,255,255,0.98)',
-        glassSmDark: 'rgba(0,0,0,0.98)',
-        glassMd: 'rgba(0,0,0,0)',
-        glassMdDark: 'rgba(0,0,0,0)',
-
-        gray750: '#262d38',
-      },
       boxShadow: {
         glass: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
       },
-    },
-    fontFamily: {
-      // display: ['Montserrat'],
-      display: ['Inter'],
-      body: ['Inter'],
+      fontFamily: {
+        display: ['Manrope'],
+        body: ['Montserrat'],
+      },
     },
   },
   variants: {
