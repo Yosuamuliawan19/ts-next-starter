@@ -145,8 +145,8 @@ export default function AchievementSection() {
   return (
     <>
       <div className="flex lg:flex-row flex-col">
-        <div className="grid grid-cols-1  my-8 ">
-          <a className="font-display bold mb-4">Competitive Programming</a>
+        <div className="grid grid-cols-1  my-8 p-8 rounded-lg bg-gray-100">
+          <a className="font-display bold mb-4">💻 Competitive Programming</a>
 
           <div className="font-display">
             Represented Binus University's competitive programming team in:
@@ -179,8 +179,8 @@ export default function AchievementSection() {
           </div>
         </div>
         <div className="px-4"></div>
-        <div className="grid grid-cols-1 my-8 ">
-          <a className="font-display bold mb-4">Other achievements</a>
+        <div className="grid grid-cols-1 my-8   p-8 rounded-lg bg-gray-100">
+          <a className="font-display bold mb-4">🏆 Other achievements</a>
           {projects?.map((data) => {
             return (
               <div className="transition  flex justify-between  hover:bg-gray-100 duration-75 rounded-lg p-4 hover:cursor-pointer">

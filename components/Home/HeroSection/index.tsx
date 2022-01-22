@@ -1,8 +1,8 @@
 import ContentLayout from '@components/ContentLayout';
 import { EXTERNAL_LINKS } from '@constants/';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { GoLocation } from 'react-icons/go';
 export function HeroSection() {
   return (
     <ContentLayout>
@@ -16,14 +16,14 @@ export function HeroSection() {
           of Singapore (NUS)
         </div>
         <div className="font-display  my-2 flex">
-          <div className="pr-2 flex align-center">
-            <GoLocation />
-          </div>
+          <div className="pr-2 flex align-center">📍</div>
           Singapore
         </div>
 
         <Link href={EXTERNAL_LINKS.MAILTO}>
-          <button
+          <motion.button
+            whileHover={{ scale: 1.1, opacity: 0.85 }}
+            whileTap={{ scale: 0.9 }}
             className="text-sm bold px-8 py-2 rounded-full  font-display mr-2  my-2 hover:opacity-80"
             style={{
               backgroundColor: '#e4f1e8',
@@ -31,7 +31,7 @@ export function HeroSection() {
             }}
           >
             Get in touch
-          </button>
+          </motion.button>
         </Link>
         <Link href={EXTERNAL_LINKS.DOWNLOAD_CV}>
           <button
@@ -44,7 +44,7 @@ export function HeroSection() {
             Download CV
           </button>
         </Link>
-        <div className="absolute right-0 top-0 hidden md: block">
+        <div className="absolute right-0 top-0 hidden md:block">
           <Image src={require('../../../assets/lines.svg')} />
         </div>
         <div className="mt-32"></div>

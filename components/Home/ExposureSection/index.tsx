@@ -1,9 +1,13 @@
 import { ContentLayout } from '@components';
 import styles from './index.module.css';
+import { motion } from 'framer-motion';
+
 export default function ExposureSection() {
   return (
     <ContentLayout>
-      <div
+      <motion.div
+        animate={{ scale: [0.5, 1.1, 1] }}
+        transition={{ duration: 0.5 }}
         className={
           'font-display p-4 rounded-xl flex flex-col md:flex-row ' +
           styles.container
@@ -31,7 +35,7 @@ export default function ExposureSection() {
             AI/ML as well as playing around with ML models
           </div>
         </div>
-      </div>
+      </motion.div>
     </ContentLayout>
   );
 }
