@@ -51,13 +51,13 @@ export default function ExperienceSection() {
     <>
       <>
         <div className=" md:p-0 my-8 ">
-          <div className="rounded-lg bg-gray-100 p-8 ">
+          <div className="rounded-lg bg-gray-100  p-4 md:p-8  ">
             <div className="font-display mb-4 bold"> Experiences</div>
             {ExperienceItems.map((data, idx) => {
               return (
                 <div
                   key={idx}
-                  className="transition   flex justify-between  hover:bg-gray-100 duration-75 rounded-lg p-4 hover:cursor-pointer"
+                  className="transition   flex justify-between   duration-75 rounded-lg p-2   hover:cursor-pointer"
                 >
                   <div style={{ minWidth: 60 }}>
                     <Image
@@ -68,26 +68,20 @@ export default function ExperienceSection() {
                     />
                   </div>
                   <div className="font-body pl-4 w-full pb-2">
-                    <div className="flex justify-between w-full pb-2">
+                    <div className="flex flex-col md:flex-row  justify-between w-full">
                       <div className=" font-display pb-2">
                         <div className="pb-2 bold"> {data.title} </div>
-                        <div>📍 Singapore</div>
-                        <div className="font-display   ">{data.desc}</div>
+                        <div className=" ">📍 Singapore</div>
                       </div>
                       <div className="font-display  text-gray-400 min-w-24 ">
                         {data.time}
                       </div>
                     </div>
-                    <div className="flex mt-1">
+                    <div className="font-display pb-2">{data.desc}</div>
+                    <div className="flex flex-wrap">
                       {data?.tags.map((tag) => {
                         return (
-                          <div
-                            className="px-4 py-1 rounded-xl text-sm mr-2"
-                            style={{
-                              backgroundColor: '#e4f1e8',
-                              color: '#14a01d',
-                            }}
-                          >
+                          <div className="px-4 py-1 rounded-xl text-sm mr-2 bg-green-100 text-green-500 mb-2">
                             {tag}
                           </div>
                         );
@@ -98,13 +92,13 @@ export default function ExperienceSection() {
               );
             })}
           </div>
-          <div className="rounded-lg bg-gray-100 p-8 mt-4">
+          <div className="rounded-lg bg-gray-100 p-4 md:p-8 mt-4">
             <div className="font-display mb-4 bold">Education</div>
             {EducationItems.map((data, idx) => {
               return (
                 <div
                   key={idx}
-                  className="transition   flex justify-between  hover:bg-gray-100 duration-75 rounded-lg p-4 hover:cursor-pointer"
+                  className="transition   flex justify-between   duration-75 rounded-lg p-2 hover:cursor-pointer"
                 >
                   <div style={{ minWidth: 60 }}>
                     <Image
@@ -115,15 +109,15 @@ export default function ExperienceSection() {
                     />
                   </div>
                   <div className="font-body pl-4 w-full pb-2">
-                    <div className="flex justify-between w-full pb-2">
+                    <div className="flex flex-col md:flex-row justify-between w-full ">
                       <div className=" font-display  pb-2">
                         <div className="pb-2 bold"> {data.title} </div>
-                        <div className="font-display   ">{data.desc}</div>
                       </div>
                       <div className="font-display  text-gray-400">
                         {data.time}
                       </div>
                     </div>
+                    <div className="font-display   ">{data.desc}</div>
                   </div>
                 </div>
               );

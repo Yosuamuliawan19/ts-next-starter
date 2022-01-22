@@ -13,14 +13,18 @@ function ProjectItem(props) {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        style={{ minWidth: 420, height: 220, position: 'relative' }}
-        className={styles.projectCard + ' rounded-2xl  '}
+        // style={{ minWidth: 420, height: 220, position: 'relative' }}
+        className={
+          styles.projectCard + ' rounded-2xl w-full  md:w-96 h-52 relative'
+        }
       >
         <motion.div>
           <img
-            className={'cursor-pointer object-cover rounded-2xl scale-100 '}
+            className={
+              'cursor-pointer object-cover rounded-2xl scale-100 w-full md:w-96 h-52 '
+            }
             src={data.image_url}
-            style={{ width: '420px', height: '220px' }}
+            // style={{ width: '420px', height: '220px' }}
             onClick={() => {
               window.open(data.url, '_blank');
             }}
@@ -34,9 +38,9 @@ function ProjectItem(props) {
           Visit
         </div>
       </motion.div>
-      <div className="block p-8">
+      <div className="block p-4 md:p-8">
         <div
-          className="hidden md:block font-display bold hover:underline hover:cursor-pointer"
+          className=" md:block font-display bold hover:underline hover:cursor-pointer"
           onClick={() => {
             window.open(data.url, '_blank');
           }}
@@ -55,8 +59,7 @@ function ProjectItem(props) {
         <motion.button
           whileHover={{ scale: 1.1, opacity: 0.85 }}
           whileTap={{ scale: 0.9 }}
-          className="hover:opacity-80 font-display bold flex items-center text-sm w-max py-3 px-8 mt-2 rounded-full"
-          style={{ color: 'green', backgroundColor: '#e4f1e8' }}
+          className="bg-green-100 text-green-500 hover:opacity-80 font-display bold flex items-center text-sm w-max py-3 px-8 mt-2 rounded-full"
           onClick={() => {
             window.open(data.url, '_blank');
           }}
@@ -75,24 +78,21 @@ function ProjectsSection() {
   });
   return (
     <div className="grid grid-cols-1 gap-4 mt-4 mb-8">
-      <div className="font-display">
+      <div className="font-display ">
         {' '}
         Passion projects, experiments, open source and more
       </div>
-      <div className="grid grid-cols-1  my-8 p-8 rounded-lg bg-gray-100">
+      {/* <div className="grid grid-cols-1  my-8 p-8 rounded-lg bg-gray-100">
         <a className="font-display bold mb-4">💻 Web Widgets</a>
         <div></div>
-      </div>
+      </div> */}
 
       {projects?.map((data, idx) => {
         return <ProjectItem data={data} key={idx} />;
       })}
       <div className="flex items-center justify-center">
         <Link href="/projects">
-          <a
-            className="font-display bold flex justify-center items-center text-sm w-full py-3 px-8 mt-2 rounded-full"
-            style={{ color: 'green', backgroundColor: '#e4f1e8' }}
-          >
+          <a className="bg-green-100 text-green-500 font-display bold flex justify-center items-center text-sm w-full py-3 px-8 mt-2 rounded-full">
             View all
           </a>
         </Link>

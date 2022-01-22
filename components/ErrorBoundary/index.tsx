@@ -1,12 +1,11 @@
 import React from 'react';
-import { createStandaloneToast } from '@chakra-ui/react';
+// import { createStandaloneToast } from '@chakra-ui/react';
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
   // You can also log the error to an error reporting service
-  toast = createStandaloneToast();
   static getDerivedStateFromError(error) {
     // Update state so the next render will show the fallback UI.
     return { hasError: true };
@@ -15,13 +14,13 @@ class ErrorBoundary extends React.Component {
   componentDidCatch(error, errorInfo) {
     console.log('boundary', error);
 
-    const toast = createStandaloneToast();
-    toast({
-      title: 'An error occurred.',
-      status: 'error',
-      duration: 2000,
-      isClosable: true,
-    });
+    // const toast = createStandaloneToast();
+    // toast({
+    //   title: 'An error occurred.',
+    //   status: 'error',
+    //   duration: 2000,
+    //   isClosable: true,
+    // });
   }
 
   render() {

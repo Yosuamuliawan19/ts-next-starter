@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 function CoursesSecttion() {
   return (
     <table className="min-w-full divide-y divide-gray-200">
@@ -127,25 +129,25 @@ export default function AchievementSection() {
   const profiles = [
     {
       title: 'Leetcode',
-      link: 'https://leetcode.com/jane_cooper',
+      link: 'https://leetcode.com/yosuamuliawan19/',
     },
     {
       title: 'Codeforces',
-      link: 'https://leetcode.com/jane_cooper',
+      link: 'https://codeforces.com/profile/yosua19',
     },
     {
       title: 'Uhunt / Uva',
-      link: 'https://leetcode.com/jane_cooper',
+      link: 'https://uhunt.onlinejudge.org/id/864126',
     },
     {
       title: 'VJudge',
-      link: 'https://leetcode.com/jane_cooper',
+      link: 'https://vjudge.net/user/yosuam19',
     },
   ];
   return (
     <>
       <div className="flex lg:flex-row flex-col">
-        <div className="grid grid-cols-1  my-8 p-8 rounded-lg bg-gray-100">
+        <motion.div className="grid grid-cols-1  my-8 p-4 md:p-8 rounded-lg bg-gray-100">
           <a className="font-display bold mb-4">💻 Competitive Programming</a>
 
           <div className="font-display">
@@ -154,36 +156,30 @@ export default function AchievementSection() {
 
           {contests?.map((data) => {
             return (
-              <div className="transition  flex justify-between  hover:bg-gray-100 duration-75 rounded-lg p-4 hover:cursor-pointer">
+              <div className="transition  flex justify-between   duration-75 rounded-lg p-4 hover:cursor-pointer">
                 <div className=" font-display"> - {data}</div>
               </div>
             );
           })}
-          <div className="flex items-center font-display mb-2 flex-wrap">
-            <div>Profiles: </div>
+          <div className="flex  items-center font-display  flex-wrap">
+            <div className="mb-2">Profiles: </div>
             {profiles?.map((data) => {
               return (
-                <a href={data.link}>
-                  <div
-                    style={{
-                      backgroundColor: '#e4f1e8',
-                      color: '#14a01d',
-                    }}
-                    className="rounded-full bold py-2 px-4   font-display   hover:opacity-80 ml-2  text-sm"
-                  >
+                <a href={data.link} target="_blank">
+                  <div className="bg-green-100 text-green-500 rounded-full bold py-2 px-4 mb-2   font-display   hover:opacity-80 ml-2  text-sm">
                     {data.title}
                   </div>
                 </a>
               );
             })}
           </div>
-        </div>
+        </motion.div>
         <div className="px-4"></div>
-        <div className="grid grid-cols-1 my-8   p-8 rounded-lg bg-gray-100">
+        <motion.div className="grid grid-cols-1 my-8  rounded-lg  p-4 md:p-8 bg-gray-100 ">
           <a className="font-display bold mb-4">🏆 Other achievements</a>
           {projects?.map((data) => {
             return (
-              <div className="transition  flex justify-between  hover:bg-gray-100 duration-75 rounded-lg p-4 hover:cursor-pointer">
+              <div className="transition  flex justify-between   duration-75 rounded-lg p-4 hover:cursor-pointer">
                 <div>
                   <div className="font-display">{data.title}</div>{' '}
                   <a className=" font-display bold text-gray-400">
@@ -196,7 +192,7 @@ export default function AchievementSection() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
       {/* <a className="font-display bold ">Certifications</a> */}
 

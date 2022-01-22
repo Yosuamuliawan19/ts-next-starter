@@ -5,10 +5,12 @@ import { IdProvider } from '@radix-ui/react-id';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React from 'react';
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
 import { KBarProvider } from 'kbar';
+import nightwind from 'nightwind/helper';
+
 // Sentry.init({
 //   dsn: 'https://3c7b1a80d8c04409a255ede9111d5b23@o900209.ingest.sentry.io/5919205',
 //   integrations: [new Integrations.BrowserTracing()],
@@ -29,25 +31,15 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   }
   // }, [router.pathname]);
 
-  const [darkMode, setDarkMode] = useState('light');
-
-  const toggleDarkMode = () => {
-    if (darkMode === 'dark') {
-      localStorage.setItem('theme', 'light');
-      setDarkMode('light');
-    } else {
-      localStorage.setItem('theme', 'dark');
-      setDarkMode('dark');
-    }
-  };
-
   return (
     <KBarProvider actions={COMMAND_LIST}>
       <Head>
+        <script dangerouslySetInnerHTML={{ __html: nightwind.init() }} />
         <CommonMeta />
       </Head>
       {/*<AuthProvider>*/}
-      <div className={darkMode} id={'dark-id'}>
+
+      <div className={'text-black bg-white'} id={'dark-id dark'}>
         <IdProvider>
           <ErrorBoundary>
             <Component {...pageProps} />

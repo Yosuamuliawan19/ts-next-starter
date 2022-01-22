@@ -18,7 +18,7 @@ export default function Home() {
       <BaseLayout>
         <HeroSection />
         <ExposureSection />
-        <div className="mt-4"></div>
+        <div className="mt-4  "></div>
         <TabView />
         <Footer />
       </BaseLayout>

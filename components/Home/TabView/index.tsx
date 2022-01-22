@@ -63,17 +63,19 @@ export default function TabCollections() {
                 whileHover={{ scale: 1.05, opacity: 0.85 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(_) => setCurrentTab(data)}
-                className={
-                  'px-4 py-2 rounded-lg text-md mr-4 font-display bold w-max '
-                }
-                style={
+                className={`px-4 py-2 rounded-lg text-md mr-4 font-display bold w-max opacity-100 ${
                   data.key === currentTab.key
-                    ? { backgroundColor: '#fef3c7', color: '#b45309' }
-                    : {
-                        backgroundColor: 'rgba(0,0,0,0.1)',
-                        color: 'rgba(0,0,0,0.7)',
-                      }
-                }
+                    ? ' text-yellow-500 bg-yellow-100 bg-gray-100 '
+                    : ' text-black bg-gray-100'
+                }`}
+                // style={
+                //   data.key === currentTab.key
+                //     ? { backgroundColor: '#fef3c7', color: '#b45309' }
+                //     : {
+                //         backgroundColor: 'rgba(0,0,0,0.1)',
+                //         color: 'rgba(0,0,0,0.7)',
+                //       }
+                // }
               >
                 {data.label}
               </motion.button>

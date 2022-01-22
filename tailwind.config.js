@@ -3,7 +3,37 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   mode: 'jit',
   theme: {
+    nightwind: {
+      colors: {
+        white: '#191b1c',
+        black: '#ffffff',
+        gray: {
+          100: '#202224',
+        },
+        green: {
+          100: '#1b3527', // or 'blue.900'
+          500: '#60cd66', // or 'blue.500'
+        },
+
+        yellow: {
+          100: '#584601', // or 'blue.500'
+          500: '#ffa054', // or 'blue.900'
+        },
+        primary: 'var(--secondary)',
+        secondary: 'var(--primary)',
+      },
+    },
     extend: {
+      colors: {
+        green: {
+          100: '#e4f1e8', // or 'blue.900'
+          500: '#14a01d', // or 'blue.500'
+        },
+        yellow: {
+          100: '#fef3c7', // or 'blue.900'
+          500: '#b45309', // or 'blue.500'
+        },
+      },
       width: {
         'fit-content': 'fit-content',
       },
@@ -33,5 +63,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('nightwind')],
 };

@@ -23,16 +23,20 @@ function BlogSection() {
         return (
           <a
             href={data.url}
-            className="flex justify-between mb-2 hover:bg-gray-100 duration-75 rounded-lg p-4 hover:cursor-pointer"
+            className="flex justify-between mb-2  duration-75 rounded-lg p-4 hover:cursor-pointer"
           >
             <div>
               <div className="font-display">{data.title}</div>{' '}
-              <a className="font-display  text-gray-400">{data.desc}</a>
+              {/* <a className="font-display  text-gray-400">{data.desc}</a> */}
             </div>
             <div className="font-display  text-gray-400">{data.date}</div>
           </a>
         );
       })}
+      <div className="font-display pb-4">
+        Disclaimer: all writings here are my own and do not represent any of my
+        current and past employer.
+      </div>
     </div>
   );
 }

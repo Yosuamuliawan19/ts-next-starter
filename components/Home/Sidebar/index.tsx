@@ -43,13 +43,7 @@ export default function Sidebar() {
       </div>
       <div className="fixed bottom-8 right-8  ">
         <a href="#top">
-          <div
-            className="bold   font-display   my-2 hover:opacity-80 shadow-md w-min rounded-full p-4 text-lg"
-            style={{
-              backgroundColor: '#e4f1e8',
-              color: '#14a01d',
-            }}
-          >
+          <div className="bold bg-green-100 text-green-500  font-display   my-2 hover:opacity-80 shadow-md w-min rounded-full p-4 text-lg">
             <AiOutlineArrowUp />
           </div>
         </a>
