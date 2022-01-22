@@ -1,0 +1,10 @@
+.sidebar {
+  background-color: hsla(0, 0%, 100%, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.icon:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}

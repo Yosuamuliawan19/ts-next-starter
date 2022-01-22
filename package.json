@@ -29,6 +29,7 @@
     "framer-motion": "^4.1.17",
     "graphql-request": "^3.5.0",
     "isomorphic-fetch": "^3.0.0",
+    "kbar": "^0.1.0-beta.27",
     "keen-slider": "^5.5.1",
     "match-sorter": "^6.3.0",
     "mixpanel-browser": "^2.41.0",

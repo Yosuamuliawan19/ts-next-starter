@@ -19,11 +19,11 @@ body {
   height: 10px;
 }
 
-.r-b-gradient{
-  background: linear-gradient(291.34deg, #3DA9FC 0%, #E4363D 100%);
+.r-b-gradient {
+  background: linear-gradient(291.34deg, #3da9fc 0%, #e4363d 100%);
 }
-.r-b-gradient-text{
-  background: linear-gradient(291.34deg, #3DA9FC 0%, #E4363D 100%);
+.r-b-gradient-text {
+  background: linear-gradient(291.34deg, #3da9fc 0%, #e4363d 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -31,29 +31,29 @@ body {
   /*background: rgba(90, 90, 90, 0.2);*/
   border-radius: 8px;
 }
-.bounce-in{
+.bounce-in {
   opacity: 0;
   animation-name: bounceIn;
   animation-duration: 450ms;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
-@keyframes bounceIn{
-  0%{
+@keyframes bounceIn {
+  0% {
     opacity: 0;
-    transform: scale(0.3) translate3d(0,0,0);
+    transform: scale(0.3) translate3d(0, 0, 0);
   }
-  50%{
+  50% {
     opacity: 0.9;
     transform: scale(1.1);
   }
-  80%{
+  80% {
     opacity: 1;
     transform: scale(0.89);
   }
-  100%{
+  100% {
     opacity: 1;
-    transform: scale(1) translate3d(0,0,0);
+    transform: scale(1) translate3d(0, 0, 0);
   }
 }
 
@@ -271,7 +271,7 @@ button:focus {
 /*  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d90635",endColorstr="#00d4ff",GradientType=1);*/
 /*}*/
 
- @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
 .glassmorphism {
   background: rgba(255, 255, 255, 0.2);
@@ -503,13 +503,7 @@ button:focus {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e4363d",endColorstr="#3da9fc",GradientType=1);
 }
 
-
-
-
-
-
-
-.htmlArea a{
+.htmlArea a {
   color: #2a69ac;
   font-weight: bold;
 }

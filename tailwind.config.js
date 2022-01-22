@@ -26,7 +26,7 @@ module.exports = {
       },
       fontFamily: {
         display: ['Manrope'],
-        body: ['Montserrat'],
+        body: ['Manrope'],
       },
     },
   },

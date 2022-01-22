@@ -1,3 +1,4 @@
+import CommandCenter, { COMMAND_LIST } from '@components/CommandCenter';
 import CommonMeta from '@components/CommonMeta';
 import ErrorBoundary from '@components/ErrorBoundary';
 import { IdProvider } from '@radix-ui/react-id';
@@ -7,7 +8,7 @@ import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import 'tailwindcss/tailwind.css';
 import '../styles/globals.css';
-
+import { KBarProvider } from 'kbar';
 // Sentry.init({
 //   dsn: 'https://3c7b1a80d8c04409a255ede9111d5b23@o900209.ingest.sentry.io/5919205',
 //   integrations: [new Integrations.BrowserTracing()],
@@ -41,23 +42,21 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <div>
+    <KBarProvider actions={COMMAND_LIST}>
       <Head>
-        <title>Next TS Starter 🔥</title>
         <CommonMeta />
       </Head>
       {/*<AuthProvider>*/}
-      <div className={darkMode}>
+      <div className={darkMode} id={'dark-id'}>
         <IdProvider>
-          Å
           <ErrorBoundary>
             <Component {...pageProps} />
           </ErrorBoundary>
         </IdProvider>
       </div>
-
+      <CommandCenter />
       {/*</AuthProvider>*/}
-    </div>
+    </KBarProvider>
   );
 }
 export default MyApp;

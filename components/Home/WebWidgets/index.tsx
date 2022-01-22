@@ -4,12 +4,15 @@ import { useState } from 'react';
 function ProjectsSection() {
   const { data, error } = useProjects();
   const projects =
-    data?.projects?.sort((a, b) => a.priority < b.priority) || [];
+    data?.projects?.sort((a, b) => {
+      console.log(a, b);
+      return a.priority >= b.priority;
+    }) || [];
   return (
     <div className="grid grid-cols-1 gap-4 mt-8">
-      {projects?.map((data) => {
+      {projects?.map((data, idx) => {
         return (
-          <div className="flex">
+          <div key={idx} className="flex">
             <div style={{ minWidth: 420, height: 220 }}>
               <img
                 className="cursor-pointer rounded-2xl object-cover hover:shadow-xl transition duration-400"
