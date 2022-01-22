@@ -3,7 +3,12 @@ import styles from './index.module.css';
 export default function ExposureSection() {
   return (
     <ContentLayout>
-      <div className={'font-display p-4 rounded-xl flex ' + styles.container}>
+      <div
+        className={
+          'font-display p-4 rounded-xl flex flex-col md:flex-row ' +
+          styles.container
+        }
+      >
         <div className="p-4">
           <div className="mt-2 bold" style={{ color: '#42b549' }}>
             I like creating web apps that are delightful to use, in code that is

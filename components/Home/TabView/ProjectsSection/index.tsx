@@ -5,10 +5,10 @@ import styles from './index.module.css';
 function ProjectItem(props) {
   const { data } = props;
   return (
-    <div className={'flex my-2 '}>
+    <div className={'flex my-2 flex-col md:flex-row'}>
       <div
         style={{ minWidth: 420, height: 220, position: 'relative' }}
-        className={styles.projectCard + ' rounded-2xl '}
+        className={styles.projectCard + ' rounded-2xl  '}
       >
         <img
           className={
@@ -16,6 +16,9 @@ function ProjectItem(props) {
           }
           src={data.image_url}
           style={{ width: '420px', height: '220px' }}
+          onClick={() => {
+            window.open(data.url, '_blank');
+          }}
         />
 
         <div className="rounded-full px-4 py-1 font-display text-xs shadow-md  w-max bold relative -top-8 bg-white left-2">
@@ -26,7 +29,14 @@ function ProjectItem(props) {
         </div>
       </div>
       <div className="block p-8">
-        <div className="font-display bold ">{data?.title}</div>{' '}
+        <div
+          className="hidden md:block font-display bold hover:underline hover:cursor-pointer"
+          onClick={() => {
+            window.open(data.url, '_blank');
+          }}
+        >
+          {data?.title}
+        </div>{' '}
         <div
           className="font-display bold text-sm text-gray-400 pb-1"
           style={{ color: '#14a01d' }}
@@ -39,6 +49,9 @@ function ProjectItem(props) {
         <button
           className="hover:opacity-80 font-display bold flex items-center text-sm w-max py-3 px-8 mt-2 rounded-full"
           style={{ color: 'green', backgroundColor: '#e4f1e8' }}
+          onClick={() => {
+            window.open(data.url, '_blank');
+          }}
         >
           {data.call_to_action} <AiOutlineAlert />
         </button>
@@ -67,7 +80,7 @@ function ProjectsSection() {
             className="font-display bold flex justify-center items-center text-sm w-full py-3 px-8 mt-2 rounded-full"
             style={{ color: 'green', backgroundColor: '#e4f1e8' }}
           >
-            View 52 more
+            View all
           </a>
         </Link>
       </div>

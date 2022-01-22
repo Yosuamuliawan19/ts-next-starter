@@ -2,18 +2,26 @@ import ContentLayout from '@components/ContentLayout';
 import { EXTERNAL_LINKS } from '@constants/';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { GoLocation } from 'react-icons/go';
 export function HeroSection() {
   return (
     <ContentLayout>
       <div className="relative overflow-hidden">
         <div className=" text-3xl font-display mt-32">Hi, I'm Yosua</div>
-        <div className="font-display text-md my-2 mt-4">
-          💻 Software Engineer - Shopee (SG)
+        <div className="font-display text-md my-2 mt-4 flex">
+          <div className="pr-2">💻</div> Software Engineer - Shopee (SG)
         </div>
-        <div className="font-display  my-2">
-          🎓 Graduate Student - National University of Singapore (NUS)
+        <div className="font-display  my-2 flex">
+          <div className="pr-2">🎓</div> Graduate Student - National University
+          of Singapore (NUS)
         </div>
+        <div className="font-display  my-2 flex">
+          <div className="pr-2 flex align-center">
+            <GoLocation />
+          </div>
+          Singapore
+        </div>
+
         <Link href={EXTERNAL_LINKS.MAILTO}>
           <button
             className="text-sm bold px-8 py-2 rounded-full  font-display mr-2  my-2 hover:opacity-80"
@@ -36,7 +44,7 @@ export function HeroSection() {
             Download CV
           </button>
         </Link>
-        <div className="absolute right-0 top-0 ">
+        <div className="absolute right-0 top-0 hidden md: block">
           <Image src={require('../../../assets/lines.svg')} />
         </div>
         <div className="mt-32"></div>

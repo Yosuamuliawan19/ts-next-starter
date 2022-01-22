@@ -5,6 +5,7 @@ import {
   AiOutlineTwitter,
   AiFillLinkedin,
   AiFillGithub,
+  AiOutlineArrowUp,
 } from 'react-icons/ai';
 import styles from './index.module.css';
 export default function Sidebar() {
@@ -39,6 +40,19 @@ export default function Sidebar() {
             <AiFillGithub className="text-2xl " />
           </div>
         </Link>
+      </div>
+      <div className="fixed bottom-8 right-8  ">
+        <a href="#top">
+          <div
+            className="bold   font-display   my-2 hover:opacity-80 shadow-md w-min rounded-full p-4 text-lg"
+            style={{
+              backgroundColor: '#e4f1e8',
+              color: '#14a01d',
+            }}
+          >
+            <AiOutlineArrowUp />
+          </div>
+        </a>
       </div>
     </>
   );

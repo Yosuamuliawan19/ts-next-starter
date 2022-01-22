@@ -1,5 +1,5 @@
 import { BaseLayout, ContentLayout, Navbar } from '@components';
-import BlogSection from '@components/Home/BlogSection';
+import BlogSection from '@components/Home/TabView/BlogSection';
 import Footer from '@components/Home/Footer';
 import Sidebar from '@components/Home/Sidebar';
 import Head from 'next/head';

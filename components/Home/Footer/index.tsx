@@ -5,7 +5,7 @@ export default function ExperienceSection() {
     <>
       <div className={'py-32 ' + styles.footer}>
         <ContentLayout>
-          <div className="font-display bold text-2xl mb-2">💬 Lets chat!</div>
+          <div className="font-display bold text-2xl mb-2 ">💬 Lets chat!</div>
           <div
             className={`max-w-md font-display bold text-lg  mb-4  ${styles.subtitle}`}
           >

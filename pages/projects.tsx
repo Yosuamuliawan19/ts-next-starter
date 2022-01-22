@@ -1,6 +1,6 @@
 import { BaseLayout, ContentLayout, Navbar } from '@components';
 import Footer from '@components/Home/Footer';
-import ProjectsSection from '@components/Home/ProjectsSection';
+import ProjectsSection from '@components/Home/TabView/ProjectsSection';
 import Sidebar from '@components/Home/Sidebar';
 import Head from 'next/head';
 import React from 'react';
