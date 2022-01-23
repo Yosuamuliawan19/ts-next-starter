@@ -53,7 +53,7 @@ export default function TabCollections() {
       <ContentLayout>
         <div
           className={
-            'flex sticky top-14 bg-white overflow-x-scroll pt-4 z-max ' +
+            'flex sticky top-14 bg-white overflow-x-scroll pt-2 pb-2 z-max ' +
             styles.navbar
           }
         >
@@ -63,7 +63,7 @@ export default function TabCollections() {
                 whileHover={{ scale: 1.05, opacity: 0.85 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(_) => setCurrentTab(data)}
-                className={`px-4 py-2 rounded-lg text-md mr-4 font-display bold w-max opacity-100 ${
+                className={`shadow-md px-4 py-2 rounded-lg text-md mr-4 font-display bold w-max opacity-100 ${
                   data.key === currentTab.key
                     ? ' text-yellow-500 bg-yellow-100 bg-gray-100 '
                     : ' text-black bg-gray-100'
@@ -82,7 +82,9 @@ export default function TabCollections() {
             );
           })}
         </div>
-        {currentTab.content && currentTab.content}
+        <div className='z-max_3"'>
+          {currentTab.content && currentTab.content}
+        </div>
       </ContentLayout>
     </div>
   );

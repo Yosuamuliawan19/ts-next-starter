@@ -31,6 +31,11 @@ export default function ExperienceSection() {
             </div>
           </Link>
           <div className="flex items-center">
+            {/* <Link href="/experiments">
+              <div className="ml-6 font-display hover:underline hover:cursor-pointer hidden md:block">
+                Experiments
+              </div>
+            </Link> */}
             <Link href="/projects">
               <div className="ml-6 font-display hover:underline hover:cursor-pointer hidden md:block">
                 Projects

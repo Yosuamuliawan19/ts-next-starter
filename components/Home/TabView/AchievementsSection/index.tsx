@@ -147,7 +147,7 @@ export default function AchievementSection() {
   return (
     <>
       <div className="flex lg:flex-row flex-col">
-        <motion.div className="grid grid-cols-1  my-8 p-4 md:p-8 rounded-lg bg-gray-100">
+        <motion.div className="grid grid-cols-1  my-8 p-4 md:p-8 rounded-lg bg-gray-100 ">
           <a className="font-display bold mb-4">💻 Competitive Programming</a>
 
           <div className="font-display">

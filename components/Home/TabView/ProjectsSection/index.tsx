@@ -6,7 +6,7 @@ import styles from './index.module.css';
 function ProjectItem(props) {
   const { data } = props;
   return (
-    <div className={'flex my-2 flex-col md:flex-row'}>
+    <div className={'flex my-2 flex-col md:flex-row  '}>
       <motion.div
         whileHover={{ scale: 0.9, shadow: '10px 10px 10px rgba(0,0,0,0.75)' }}
         whileTap={{ scale: 0.8 }}
@@ -15,13 +15,13 @@ function ProjectItem(props) {
         viewport={{ once: true }}
         // style={{ minWidth: 420, height: 220, position: 'relative' }}
         className={
-          styles.projectCard + ' rounded-2xl w-full  md:w-96 h-52 relative'
+          styles.projectCard + ' rounded-2xl w-full  md:w-96 h-52 relative '
         }
       >
         <motion.div>
           <img
             className={
-              'cursor-pointer object-cover rounded-2xl scale-100 w-full md:w-96 h-52 '
+              'cursor-pointer object-cover rounded-2xl scale-100 w-full md:w-96 h-52  '
             }
             src={data.image_url}
             // style={{ width: '420px', height: '220px' }}
@@ -77,7 +77,7 @@ function ProjectsSection() {
     return a.priority - b.priority;
   });
   return (
-    <div className="grid grid-cols-1 gap-4 mt-4 mb-8">
+    <div className="grid grid-cols-1 gap-4 mt-4 mb-8 ">
       <div className="font-display ">
         {' '}
         Passion projects, experiments, open source and more

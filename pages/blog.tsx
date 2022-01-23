@@ -1,9 +1,10 @@
 import { BaseLayout, ContentLayout, Navbar } from '@components';
-import BlogSection from '@components/Home/TabView/BlogSection';
 import Footer from '@components/Home/Footer';
 import Sidebar from '@components/Home/Sidebar';
+import BlogSection from '@components/Home/TabView/BlogSection';
 import Head from 'next/head';
 import React from 'react';
+
 export default function Home() {
   return (
     <>

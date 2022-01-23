@@ -3,7 +3,9 @@ export default function ExperienceSection() {
   const ExperienceItems = [
     {
       title: 'Software Engineer - Shopee',
-      time: '2021 - Present',
+      time: 'Mar 2021 - Present',
+      location: 'Singapore',
+      duration: '1 year',
       img: 'https://res.cloudinary.com/yosuam19/image/upload/v1618632957/shopee2_2_bkynm1.png',
       desc: 'I am currently a software engineer on the platform team (Shopee Platform Product) at Shopee Singapore.',
       tags: ['Web Development', 'Typescript', 'React', 'Nodejs'],
@@ -11,14 +13,18 @@ export default function ExperienceSection() {
 
     {
       title: 'Software Engineer Intern - Tokopedia',
-      time: '2021 - Present',
+      time: 'December 2018 - August 2019',
+      duration: '9 months',
+      location: 'Jakarta',
       img: 'https://res.cloudinary.com/yosuam19/image/upload/v1612358590/portfolio/toped_mbmwsu.png',
       desc: 'For 9 months, I interned at Tokopedia, an e-commerce platform in Indonesia. I was involved in developing the payment module, as part of the optimization team.',
       tags: ['Fullstack', 'Golang', 'React'],
     },
     {
       title: 'Competitive Programming Team',
-      time: '2021 - Present',
+      time: 'June 2017 - August 2018',
+      duration: '1 y 2 months',
+      location: 'Jakarta',
       img: 'https://res.cloudinary.com/yosuam19/image/upload/v1612358330/acm_sjwcs4.png',
       desc: 'Some time ago, I was part of the competitive programming team at University. I enjoy solving problems on UVa, Codeforces, and VJudge. (and ocassionally still do, though more recently on leetcode)',
       tags: ['Competitive programming', 'C++', 'Algorithms', 'Data Structures'],
@@ -71,10 +77,15 @@ export default function ExperienceSection() {
                     <div className="flex flex-col md:flex-row  justify-between w-full">
                       <div className=" font-display pb-2">
                         <div className="pb-2 bold"> {data.title} </div>
-                        <div className=" ">📍 Singapore</div>
+                        <div className=" ">📍 {data.location}</div>
                       </div>
-                      <div className="font-display  text-gray-400 min-w-24 ">
-                        {data.time}
+                      <div className="flex flex-col items-end">
+                        <div className="font-display  text-gray-400 min-w-24 ">
+                          {data.time}
+                        </div>
+                        <div className="font-display  text-gray-400 min-w-24 ">
+                          {data.duration}
+                        </div>
                       </div>
                     </div>
                     <div className="font-display pb-2">{data.desc}</div>
