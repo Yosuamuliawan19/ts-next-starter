@@ -19,6 +19,10 @@ module.exports = {
           100: '#584601', // or 'blue.500'
           500: '#ffa054', // or 'blue.900'
         },
+        blue: {
+          100: '#1f4351', // or 'blue.900'
+          500: '#38bdf8', // or 'blue.500'
+        },
         primary: 'var(--secondary)',
         secondary: 'var(--primary)',
       },
@@ -32,6 +36,10 @@ module.exports = {
         yellow: {
           100: '#fef3c7', // or 'blue.900'
           500: '#b45309', // or 'blue.500'
+        },
+        blue: {
+          500: '#0284C7', // or 'blue.900'
+          100: '#d0edfb', // or 'blue.500'
         },
       },
       width: {

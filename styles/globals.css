@@ -217,16 +217,16 @@ button:focus {
 
 @layer base {
   h1 {
-    @apply text-sm md:text-xl font-bold py-4 dark:text-white;
+    @apply text-xl font-bold py-4 dark:text-white;
   }
   h2 {
-    @apply text-sm md:text-lg font-bold py-4 dark:text-white;
+    @apply text-lg font-bold py-4 dark:text-white;
   }
   h3 {
-    @apply md:text-sm font-bold py-2 dark:text-white;
+    @apply text-sm font-bold py-2 dark:text-white;
   }
   p {
-    @apply md:text-sm pb-2 dark:text-white;
+    @apply text-sm pb-2 dark:text-white;
   }
   li {
     @apply list-outside	 pb-2 list-disc dark:text-white text-sm transform translate-x-5;
