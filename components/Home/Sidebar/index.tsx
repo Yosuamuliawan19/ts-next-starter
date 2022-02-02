@@ -41,7 +41,7 @@ export default function Sidebar() {
           </div>
         </Link>
       </div>
-      <div className="fixed bottom-8 right-8  ">
+      <div className="fixed md:bottom-8  md:right-8 bottom-2 right-4 z-max  ">
         <a href="#top">
           <div className="bold bg-green-100 text-green-500  font-display   my-2 hover:opacity-80 shadow-md w-min rounded-full p-4 text-lg">
             <AiOutlineArrowUp />

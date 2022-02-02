@@ -5,19 +5,14 @@ import AchievementSection from './AchievementsSection';
 import BlogSection from './BlogSection';
 import ExperienceSection from './ExperienceSection';
 import styles from './index.module.css';
-import ProjectsSectionCategorized from './ProjectsSectionCategorized';
+import ProjectsSection from './ProjectsSection';
 
 const tabsList = [
   {
     label: <div className="w-max">🛠 Projects</div>,
-    key: 'projects-categorized',
-    content: <ProjectsSectionCategorized />,
+    key: 'projects',
+    content: <ProjectsSection />,
   },
-  // {
-  //   label: <div className="w-max">🛠 Projects</div>,
-  //   key: 'projects',
-  //   content: <ProjectsSection />,
-  // },
 
   {
     label: 'Blog',

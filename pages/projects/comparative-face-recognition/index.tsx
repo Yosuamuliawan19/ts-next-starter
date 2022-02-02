@@ -10,11 +10,9 @@ import { IoIosDocument } from 'react-icons/io';
 
 const content = `
 
-## Investigating Machine Learning Approaches for Predominant Musical Instrument Recognition in Polyphonic Music
+## A Comparative Study Of Generalized Feature Extraction Techniques For Face Recognition
 
-First author - submitted to 2020 Joint Conference on AI Music Creativity
-
-
+Submitted as part of Final Project to Computer Vision Class at University of Nottingham
 
 `;
 
@@ -22,24 +20,31 @@ export default function Home({ source }) {
   return (
     <>
       <Head>
-        <title>ML in Polyphonic Music | Yosua Muliawan</title>
+        <title>
+          Feature Extraction Techniques For Face Recognition | Yosua Muliawan
+        </title>
       </Head>
       <Navbar />
       <Sidebar />
       <BaseLayout>
         <ContentLayout>
           <div className=" min-h-screen font-display">
-            <div className="flex">
-              <div className="w-40 h-60 m-4 rounded-lg bg-gray-200"></div>
+            <div className="flex md:flex-row flex-col mb-8">
+              <img
+                src="https://res.cloudinary.com/yosuam19/image/upload/v1643801305/portfolio/comparative-face-recognition_wrwhlp.png"
+                className="w-full md:w-64 h-68 mr-8 mt-4 rounded-lg bg-gray-200 object-cover border-2 border-gray-100"
+              ></img>
               <div>
-                <MDXRemote {...source} />
+                <div className="mdContent">
+                  <MDXRemote {...source} />
+                </div>
                 <motion.button
                   whileHover={{ scale: 1.1, opacity: 0.85 }}
                   whileTap={{ scale: 0.9 }}
                   className="bg-blue-100 text-blue-500 hover:opacity-80 font-display bold flex items-center text-sm w-max py-3 px-8 mt-2 rounded-lg"
                   onClick={() => {
                     window.open(
-                      'https://github.com/Yosuamuliawan19/csmc_mume_polyphonic_instrument_classification/blob/master/MUME_2020___Submission.pdf',
+                      'https://drive.google.com/file/d/1mRYdY4Lixei77X8hzPUc3EQ_sF7t8DbI/view',
                       '_blank'
                     );
                   }}

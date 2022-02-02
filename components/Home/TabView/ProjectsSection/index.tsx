@@ -1,17 +1,17 @@
 import { useProjects } from '@api';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { AiOutlineAlert } from 'react-icons/ai';
 import styles from './index.module.css';
+import { BiLinkExternal } from 'react-icons/bi';
 function ProjectItem(props) {
   const { data } = props;
+
   if (data.priority === 420) {
     return null;
   }
-  const arr = text.split('&_tags=');
+  const arr = data.subtitle.split('&_tags=');
   const tags = arr.length > 1 ? arr[1].split(',') : [];
-  const sub = arr[0];
-
+  const subtitle = arr.length > 0 ? arr[0] : '';
   return (
     <div className={'flex my-2 flex-col md:flex-row  '}>
       <div
@@ -19,9 +19,6 @@ function ProjectItem(props) {
           styles.projectCard +
           ' rounded-2xl w-full  md:w-96 h-52 relative overflow-hidden bg-green-100'
         }
-        // style={{
-        //   background: `linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)`,
-        // }}
       >
         <motion.div
           whileHover={{ scale: 0.9, shadow: '10px 10px 10px rgba(0,0,0,0.75)' }}
@@ -50,9 +47,9 @@ function ProjectItem(props) {
           <div className="rounded-full px-4 py-1 font-display text-xs shadow-md  w-max bold relative -top-8 bg-white left-2">
             {data.year}
           </div>
-          <div className="rounded-full px-4 py-1 font-display text-xs shadow-md  w-max bold absolute bottom-2 bg-white right-2">
+          {/* <div className="rounded-full px-4 py-1 font-display text-xs shadow-md  w-max bold absolute bottom-2 bg-white right-2">
             Visit
-          </div>
+          </div> */}
         </motion.div>
       </div>
       <div className="block p-4 md:p-8">
@@ -64,11 +61,22 @@ function ProjectItem(props) {
         >
           {data?.title}
         </div>{' '}
-        <div
-          className="font-display bold text-sm text-gray-400 pb-1"
-          style={{ color: '#14a01d' }}
-        >
-          {data?.subtitle}
+        {tags.length === 0 && (
+          <div
+            className="font-display bold text-sm text-gray-400 pb-1"
+            style={{ color: '#14a01d' }}
+          >
+            {subtitle}
+          </div>
+        )}
+        <div className=" pb-1 flex" style={{ color: '#14a01d' }}>
+          {tags.map((data) => {
+            return (
+              <div className="my-2 rounded-md mr-2 bg-green-100 text-green-500 font-display  flex items-center text-sm  px-2 py-1">
+                {data}
+              </div>
+            );
+          })}
         </div>{' '}
         <div className="font-display text-gray-400  text-sm ">
           {data?.description}
@@ -81,13 +89,14 @@ function ProjectItem(props) {
             window.open(data.url, '_blank');
           }}
         >
-          {data.call_to_action} <AiOutlineAlert />
+          <div className="mr-2">{data.call_to_action}</div>
+          <BiLinkExternal />
         </motion.button>
       </div>
     </div>
   );
 }
-function ProjectsSection() {
+function ProjectsSectionCategorized() {
   const { data, error } = useProjects();
   let projects = data?.projects || [];
   projects = projects.sort((a, b) => {
@@ -95,14 +104,15 @@ function ProjectsSection() {
   });
   return (
     <div className="grid grid-cols-1 gap-4 mt-4 mb-8 ">
-      <div className="font-display ">
-        {' '}
-        Passion projects, experiments, open source and more
+      <div className="flex justify-between">
+        <div className="font-display ">
+          Passion projects, experiments, open source and more
+        </div>
+        {/* <input
+          className="rounded-full py-1 px-2 border-gray-200 border-2 bg-gray-100 "
+          value={'Filter = Typescript'}
+        /> */}
       </div>
-      {/* <div className="grid grid-cols-1  my-8 p-8 rounded-lg bg-gray-100">
-        <a className="font-display bold mb-4">💻 Web Widgets</a>
-        <div></div>
-      </div> */}
 
       {projects?.map((data, idx) => {
         return <ProjectItem data={data} key={idx} />;
@@ -117,4 +127,4 @@ function ProjectsSection() {
     </div>
   );
 }
-export default ProjectsSection;
+export default ProjectsSectionCategorized;
