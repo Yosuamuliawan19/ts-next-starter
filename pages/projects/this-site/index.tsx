@@ -18,6 +18,10 @@ const content = `
 
 - Node.js
 
+## Hosting
+
+Hosted on Vercel and AWS
+
 `;
 export default function Home({ source }) {
   return (

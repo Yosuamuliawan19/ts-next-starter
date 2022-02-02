@@ -12,20 +12,9 @@ const content = `
 
 ## Investigating Machine Learning Approaches for Predominant Musical Instrument Recognition in Polyphonic Music
 
-First author - submitted to [2020 Joint Conference on AI Music Creativity](https://easychair.org/cfp/csmc-mume-2020)
+First author - submitted to 2020 Joint Conference on AI Music Creativity
 
-This paper is produced based on the work that I have done with [Dr Jeremie Clos](http://www.cs.nott.ac.uk/~pszjc1/) during my undergraduate dissertation.
 
-### Background
-We are trying to predict the predominant music in a mixture of polyphonic music. Techniques employed in this research are:
-- Background Seperation
-- Feature Extraction using MFCC, and various other audio features
-- Hyperparameter selection and comparison of different machine learning models
-
-### Findings
-- The MFCC features gives the best perfomance, accross the models. This is consistent in the literature.
-- Features from the spectral domain is nessecary to produce best performing models, in addition to cepstral features.
-- The random forest architecture achieves best out of the three classical ML models (SVM, Random Forest, and Neural Network).
 
 `;
 
@@ -40,15 +29,10 @@ export default function Home({ source }) {
       <BaseLayout>
         <ContentLayout>
           <div className=" min-h-screen font-display">
-            <div className="flex md:flex-row flex-col ">
-              <img
-                src="https://res.cloudinary.com/yosuam19/image/upload/v1598960286/polyphonic.png"
-                className="w-40 h-60 mr-8 mt-4 rounded-lg bg-gray-200 object-cover border-2 border-gray-200"
-              ></img>
+            <div className="flex">
+              <div className="w-40 h-60 m-4 rounded-lg bg-gray-200"></div>
               <div>
-                <div className="mdContent">
-                  <MDXRemote {...source} />
-                </div>
+                <MDXRemote {...source} />
                 <motion.button
                   whileHover={{ scale: 1.1, opacity: 0.85 }}
                   whileTap={{ scale: 0.9 }}

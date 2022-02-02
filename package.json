@@ -36,6 +36,7 @@
     "next": "^11.1.0",
     "next-mdx-remote": "^3.0.2",
     "nightwind": "^1.1.12",
+    "nprogress": "^0.2.0",
     "react": "^17.0.2",
     "react-color": "^2.19.3",
     "react-confetti": "^6.0.1",

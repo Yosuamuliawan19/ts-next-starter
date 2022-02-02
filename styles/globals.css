@@ -462,7 +462,7 @@ button:focus {
   display: none !important;
 }
 .z-max {
-  z-index: 99999999 !important;
+  z-index: 1400 !important;
 }
 
 .gradient-dark-flame {
@@ -510,4 +510,25 @@ button:focus {
 .htmlArea a {
   color: #2a69ac;
   font-weight: bold;
+}
+
+/* I made nprogress.css
+#nprogress {
+  z-index: 2500;
+  background: #1b3527;
+}
+#nprogress .bar {
+  z-index: 2500;
+  height: 3px;
+  color: #1b3527;
+  background: #1b3527;
+}
+#nprogress .spinner-icon {
+  z-index: 2500;
+  width: 25px;
+  height: 25px;
+  border: solid 3px transparent;
+} */
+.mdContent a {
+  text-decoration: underline;
 }

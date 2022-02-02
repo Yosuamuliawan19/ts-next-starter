@@ -16,6 +16,7 @@ export default function ExperienceSection() {
     if (typeof window === 'undefined') return true;
     return window?.localStorage.getItem('nightwind-mode') === 'dark';
   };
+
   return (
     <div className="sticky top-0 shadow-sm z-max">
       <ContentLayout>

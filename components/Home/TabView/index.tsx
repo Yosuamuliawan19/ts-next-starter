@@ -4,15 +4,21 @@ import { useState } from 'react';
 import AchievementSection from './AchievementsSection';
 import BlogSection from './BlogSection';
 import ExperienceSection from './ExperienceSection';
-import ProjectsSection from './ProjectsSection';
 import styles from './index.module.css';
+import ProjectsSectionCategorized from './ProjectsSectionCategorized';
 
 const tabsList = [
   {
     label: <div className="w-max">🛠 Projects</div>,
-    key: 'projects',
-    content: <ProjectsSection />,
+    key: 'projects-categorized',
+    content: <ProjectsSectionCategorized />,
   },
+  // {
+  //   label: <div className="w-max">🛠 Projects</div>,
+  //   key: 'projects',
+  //   content: <ProjectsSection />,
+  // },
+
   {
     label: 'Blog',
     key: 'Blog',
@@ -63,7 +69,7 @@ export default function TabCollections() {
                 whileHover={{ scale: 1.05, opacity: 0.85 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={(_) => setCurrentTab(data)}
-                className={`shadow-md px-4 py-2 rounded-lg text-md mr-4 font-display bold w-max opacity-100 ${
+                className={` px-4 py-2 rounded-lg text-md mr-4 font-display bold w-max opacity-100 ${
                   data.key === currentTab.key
                     ? ' text-yellow-500 bg-yellow-100 bg-gray-100 '
                     : ' text-black bg-gray-100'
