@@ -28,7 +28,37 @@ We were trying to predict the predominant music in a mixture of polyphonic music
 - The random forest architecture achieves best out of the three classical ML models (SVM, Random Forest, and Neural Network).
 
 `;
-
+export function MLSection({ source }) {
+  return (
+    <div className="  font-display">
+      <div className="flex md:flex-row flex-col mb-8">
+        {/* <img
+          src="https://res.cloudinary.com/yosuam19/image/upload/v1643800762/portfolio/ml-in-poly_typn7j.png"
+          className="w-full md:w-64 h-68 mr-8 mt-4 rounded-lg bg-gray-200 object-cover border-2 border-gray-100"
+        ></img> */}
+        <div>
+          <div className="mdContent">
+            <MDXRemote {...source} />
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.1, opacity: 0.85 }}
+            whileTap={{ scale: 0.9 }}
+            className="bg-blue-100 text-blue-500 hover:opacity-80 font-display bold flex items-center text-sm w-max py-3 px-8 mt-2 rounded-lg"
+            onClick={() => {
+              window.open(
+                'https://github.com/Yosuamuliawan19/csmc_mume_polyphonic_instrument_classification/blob/master/MUME_2020___Submission.pdf',
+                '_blank'
+              );
+            }}
+          >
+            <IoIosDocument className=" fill-blue-100 mr-2" />
+            Read paper
+          </motion.button>
+        </div>
+      </div>
+    </div>
+  );
+}
 export default function Home({ source }) {
   return (
     <>
@@ -39,33 +69,7 @@ export default function Home({ source }) {
       <Sidebar />
       <BaseLayout>
         <ContentLayout>
-          <div className=" min-h-screen font-display">
-            <div className="flex md:flex-row flex-col mb-8">
-              <img
-                src="https://res.cloudinary.com/yosuam19/image/upload/v1643800762/portfolio/ml-in-poly_typn7j.png"
-                className="w-full md:w-64 h-68 mr-8 mt-4 rounded-lg bg-gray-200 object-cover border-2 border-gray-100"
-              ></img>
-              <div>
-                <div className="mdContent">
-                  <MDXRemote {...source} />
-                </div>
-                <motion.button
-                  whileHover={{ scale: 1.1, opacity: 0.85 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="bg-blue-100 text-blue-500 hover:opacity-80 font-display bold flex items-center text-sm w-max py-3 px-8 mt-2 rounded-lg"
-                  onClick={() => {
-                    window.open(
-                      'https://github.com/Yosuamuliawan19/csmc_mume_polyphonic_instrument_classification/blob/master/MUME_2020___Submission.pdf',
-                      '_blank'
-                    );
-                  }}
-                >
-                  <IoIosDocument className=" fill-blue-100 mr-2" />
-                  Read paper
-                </motion.button>
-              </div>
-            </div>
-          </div>
+          <MLSection source={source} />
         </ContentLayout>
         <Footer />
       </BaseLayout>

@@ -11,6 +11,8 @@ import '../styles/globals.css';
 import { KBarProvider } from 'kbar';
 import nightwind from 'nightwind/helper';
 // import 'nprogress/nprogress.css';
+import { LocaleProvider } from '@douyinfe/semi-ui';
+import en_GB from '@douyinfe/semi-ui/lib/es/locale/source/en_GB';
 
 // Sentry.init({
 //   dsn: 'https://3c7b1a80d8c04409a255ede9111d5b23@o900209.ingest.sentry.io/5919205',
@@ -43,24 +45,26 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <KBarProvider actions={COMMAND_LIST}>
-      <Head>
-        <script dangerouslySetInnerHTML={{ __html: nightwind.init() }} />
-        <CommonMeta />
-      </Head>
-      {/* <TopProgressBar /> */}
-      {/*<AuthProvider>*/}
+    <LocaleProvider locale={en_GB}>
+      <KBarProvider actions={COMMAND_LIST}>
+        <Head>
+          <script dangerouslySetInnerHTML={{ __html: nightwind.init() }} />
+          <CommonMeta />
+        </Head>
+        {/* <TopProgressBar /> */}
+        {/*<AuthProvider>*/}
 
-      <div className={'text-black bg-white'} id={'dark-id dark'}>
-        <IdProvider>
-          <ErrorBoundary>
-            <Component {...pageProps} />
-          </ErrorBoundary>
-        </IdProvider>
-      </div>
-      <CommandCenter />
-      {/*</AuthProvider>*/}
-    </KBarProvider>
+        <div className={'text-black bg-white'} id={'dark-id dark'}>
+          <IdProvider>
+            <ErrorBoundary>
+              <Component {...pageProps} />
+            </ErrorBoundary>
+          </IdProvider>
+        </div>
+        <CommandCenter />
+        {/*</AuthProvider>*/}
+      </KBarProvider>
+    </LocaleProvider>
   );
 }
 export default MyApp;

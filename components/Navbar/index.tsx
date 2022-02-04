@@ -2,8 +2,8 @@ import React from 'react';
 import ContentLayout from '@components/ContentLayout';
 import styles from './index.module.css';
 import Link from 'next/link';
-import nightwind from 'nightwind/helper';
 import DarkModeToggle from 'react-dark-mode-toggle';
+import nightwind from 'nightwind/helper';
 function useForceUpdate() {
   const [value, setValue] = React.useState(0); // integer state
   return () => setValue((value) => value + 1); // update the state to force render
@@ -15,6 +15,16 @@ export default function ExperienceSection() {
 
     if (typeof window === 'undefined') return true;
     return window?.localStorage.getItem('nightwind-mode') === 'dark';
+  };
+  const onToggleDarkMode = (value) => {
+    const body = document.body;
+    if (!value) {
+      body.removeAttribute('theme-mode');
+    } else {
+      body.setAttribute('theme-mode', 'dark');
+    }
+    forceUpdate();
+    nightwind.enable(value);
   };
 
   return (
@@ -48,10 +58,7 @@ export default function ExperienceSection() {
               </div>
             </Link>
             <DarkModeToggle
-              onChange={(value) => {
-                forceUpdate();
-                nightwind.enable(value);
-              }}
+              onChange={onToggleDarkMode}
               checked={checkDarkMode()}
               size={48}
             />
