@@ -1,7 +1,9 @@
-import { BaseLayout, ContentLayout, Navbar } from '@components';
-import Footer from '@components/Home/Footer';
-import Sidebar from '@components/Home/Sidebar';
+import Footer from '@components/Common/Footer';
+import Navbar from '@components/Common/Navbar';
+import Sidebar from '@components/Common/Sidebar';
 import BlogSection from '@components/Home/TabView/BlogSection';
+import ContentLayout from '@components/Layout/ContentLayout';
+import BaseLayout from '@components/Layout/ContentLayout';
 import Head from 'next/head';
 import React from 'react';
 

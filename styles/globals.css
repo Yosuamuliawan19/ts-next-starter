@@ -4,6 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 @import '~@douyinfe/semi-ui/dist/css/semi.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Bangers&family=Bebas+Neue&family=Pacifico&family=Lato&family=Nanum+Pen+Script&family=Playfair+Display&family=Space+Mono&family=VT323&family=Zilla+Slab+Highlight&family=Comic+Neue&family=Open+Sans&family=EB+Garamond&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -230,7 +231,7 @@ button:focus {
     @apply text-sm pb-2 dark:text-white;
   }
   li {
-    @apply list-outside	 pb-2 list-disc dark:text-white text-sm transform translate-x-5;
+    /* @apply list-outside	 pb-2 list-disc dark:text-white text-sm transform translate-x-5; */
   }
   a {
     /*@apply text-blue-light dark:text-white;*/
@@ -536,4 +537,10 @@ button:focus {
 
 * {
   font-family: Manrope;
+}
+
+.semi-tabs-tab {
+  margin-left: 14px !important;
+  margin-right: 6px !important;
+  padding: 12px 4px !important;
 }

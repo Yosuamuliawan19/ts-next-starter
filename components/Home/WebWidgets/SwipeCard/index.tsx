@@ -5,7 +5,7 @@ import {
   useTransform,
   useMotionTemplate,
 } from 'framer-motion';
-const colors = ['#FFBE0B', '#FB5607', '#FF006E', '#8338EC', '#3A86FF'];
+const colors = ['black', 'black', 'black', 'black', 'black'];
 import styles from './index.module.css';
 
 const randomColor = (current) => {

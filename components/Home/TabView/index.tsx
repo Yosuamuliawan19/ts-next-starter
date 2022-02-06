@@ -1,4 +1,4 @@
-import { ContentLayout } from '@components';
+import ContentLayout from '@components/Layout/ContentLayout';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import AchievementSection from './AchievementsSection';

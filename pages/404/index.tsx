@@ -1,6 +1,8 @@
-import { BaseLayout, ContentLayout, Navbar } from '@components';
-import Footer from '@components/Home/Footer';
-import Sidebar from '@components/Home/Sidebar';
+import Navbar from '@components/Common/Navbar';
+import ContentLayout from '@components/Layout/ContentLayout';
+import BaseLayout from '@components/Layout/ContentLayout';
+import Footer from '@components/Common/Footer';
+import Sidebar from '@components/Common/Sidebar';
 import Head from 'next/head';
 import React from 'react';
 export default function Home() {
@@ -25,7 +27,7 @@ export default function Home() {
                 className="bold "
                 style={{
                   fontSize: 48,
-                  color: '#14a01d',
+                  color: 'black',
                 }}
               >
                 404

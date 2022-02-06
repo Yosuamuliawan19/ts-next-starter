@@ -1,4 +1,4 @@
-import { ContentLayout } from '@components';
+import ContentLayout from '@components/Layout/ContentLayout';
 import { useProjects } from '@api';
 import { useState } from 'react';
 function ProjectsSection() {

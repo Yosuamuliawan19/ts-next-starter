@@ -1,9 +1,8 @@
-import { BaseLayout, Navbar } from '@components';
-import ExposureSection from '@components/Home/ExposureSection';
-import Footer from '@components/Home/Footer';
+import Footer from '@components/Common/Footer';
+import Navbar from '@components/Common/Navbar';
 import { HeroSection } from '@components/Home/HeroSection';
-import Sidebar from '@components/Home/Sidebar';
-import TabView from '@components/Home/TabView';
+import Sidebar from '@components/Common/Sidebar';
+import BaseLayout from '@components/Layout/ContentLayout';
 import Head from 'next/head';
 import React from 'react';
 
@@ -17,11 +16,8 @@ export default function Home() {
       <Sidebar />
       <BaseLayout>
         <HeroSection />
-        <ExposureSection />
-        <div className="mt-4  "></div>
-        <TabView />
-        <Footer />
       </BaseLayout>
+      <Footer />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { BASE_URL } from '@constants';
 export type FetchServiceOptions = {
   requiresAuth: boolean;
   token?: string;
@@ -18,7 +17,7 @@ export const fetchService = async (
   }
   const accessToken = JSON.parse(localStorage.getItem('accessToken'));
   const { onFailCallback } = options;
-  const response = await fetch(`${BASE_URL}/${url}`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}${url}`, {
     method: requestMethod,
     headers: {
       'Content-Type': 'application/json',
