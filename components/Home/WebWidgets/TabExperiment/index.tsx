@@ -60,7 +60,7 @@ function Item({ color, isSelected, onClick }) {
         whileTap={{ scale: 0.9 }}
         key="text"
         className={`z-max relative px-4 py-1  rounded-full ${
-          isSelected ? 'text-black' : 'text-gray-500'
+          isSelected ? 'text-black bold' : 'text-gray-500'
         }`}
       >
         {color}
@@ -69,7 +69,7 @@ function Item({ color, isSelected, onClick }) {
   );
 }
 
-const colors = ['Projects', 'Experiences', 'Blog', 'Extraculliculars'];
+const colors = ['Personal Pages', 'Marketing page', 'E-invitation', 'Fun'];
 
 const spring = {
   type: 'spring',

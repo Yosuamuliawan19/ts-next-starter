@@ -58,47 +58,48 @@ export function HeroSection() {
             />
           </div>
         </div>
+        <div className="flex justify-center items-center flex-col mt-16">
+          <div className="text-2xl mb-4  relative z-1 bold ">Features</div>
+          <div className="flex flex-col md:flex-row mb-16  relative z-1">
+            {[
+              {
+                title: 'Delightful to use 🌎',
+                text: 'Easy to use, for painting the interwebs  ',
+              },
 
-        <div className="text-2xl mb-4  relative z-1 bold">Features</div>
-        <div className="flex flex-col md:flex-row mb-16  relative z-1">
-          {[
-            {
-              title: 'Delightful to use 🌎',
-              text: 'Easy to use, for painting the interwebs  ',
-            },
-
-            {
-              title: 'Zero config 💯',
-              text: 'Create your page, publish. Thats it!',
-            },
-            {
-              title: 'Be creative! 🎨',
-              text: 'Not for conventional sites, date to be unique ',
-            },
-            {
-              title: 'Connect links and pages 🔗',
-              text: 'Create your own links, and interconnect them to make a site ',
-            },
-          ].map((data) => {
-            return (
-              <div className="border-gray-500 border-2 rounded-lg p-4  mr-8 mb-4 bg-white">
-                <motion.div
-                  whileHover={{ scale: 1.1, opacity: 0.85 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="rounded-lg text-xl w-full md:w-40  mr-8 mb-4 bold mt-4 "
-                >
-                  {data.title}
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.1, opacity: 0.85 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="rounded-lg text-md w-full md:w-40 mb-4  "
-                >
-                  {data.text}
-                </motion.div>
-              </div>
-            );
-          })}
+              {
+                title: 'Zero config 💯',
+                text: 'Create your page, publish. Thats it!',
+              },
+              {
+                title: 'Be creative! 🎨',
+                text: 'Not for conventional sites, date to be unique ',
+              },
+              {
+                title: 'Connect links and pages 🔗',
+                text: 'Create your own links, and interconnect them to make a site ',
+              },
+            ].map((data) => {
+              return (
+                <div className="border-gray-500 border-2 rounded-lg p-4  mr-8 mb-4 bg-white">
+                  <motion.div
+                    whileHover={{ scale: 1.1, opacity: 0.85 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="rounded-lg text-xl w-full md:w-40  mr-8 mb-4 bold mt-4 "
+                  >
+                    {data.title}
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, opacity: 0.85 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="rounded-lg text-md w-full md:w-40 mb-4  "
+                  >
+                    {data.text}
+                  </motion.div>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <ExamplesSection />
