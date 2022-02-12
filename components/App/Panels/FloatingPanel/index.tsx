@@ -8,7 +8,7 @@ import {
 import { Select, Space } from '@douyinfe/semi-ui';
 import { cloneObject } from '@helpers/';
 import { showSuccessMsg } from '@helpers/feedback';
-import classNames from 'classNames';
+import classNames from 'classnames';
 import { useSpring } from 'framer-motion';
 import interact from 'interactjs';
 import React from 'react';
