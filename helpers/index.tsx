@@ -1,16 +1,16 @@
-import { createStandaloneToast } from '@chakra-ui/react';
 import { BASE_URL, STATUS_TYPES } from '@constants';
 
 export function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 export function cloneObject(obj) {
-  if (null == obj || 'object' != typeof obj) return obj;
-  const copy = obj.constructor();
-  for (const attr in obj) {
-    if (obj.hasOwnProperty(attr)) copy[attr] = obj[attr];
+  const clone = {};
+  for (const i in obj) {
+    if (obj[i] != null && typeof obj[i] == 'object')
+      clone[i] = cloneObject(obj[i]);
+    else clone[i] = obj[i];
   }
-  return copy;
+  return clone;
 }
 
 export type FetchServiceOptions = {
@@ -67,31 +67,6 @@ export const capitalize = (text: string) => {
 
 export const checkExpired = (status: string) => {
   return status === STATUS_TYPES.CLOSED || status === STATUS_TYPES.ARCHIVED;
-};
-
-export const showSuccessMsg = (desc: string) => {
-  const toast = createStandaloneToast();
-
-  toast({
-    title: 'Success',
-    description: desc,
-    status: 'success',
-    duration: 2000,
-    isClosable: true,
-    position: 'top',
-  });
-};
-export const showErrorMsg = (desc: string) => {
-  const toast = createStandaloneToast();
-
-  toast({
-    title: 'An error occured',
-    description: desc,
-    status: 'error',
-    duration: 2000,
-    isClosable: true,
-    position: 'top',
-  });
 };
 
 export const getFullName = (value) => {

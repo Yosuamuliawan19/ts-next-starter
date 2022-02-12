@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
 import React from 'react';
+import { IImageElement } from 'types';
 
 interface Props {
   element: IImageElement;
@@ -9,25 +9,19 @@ interface Props {
   className: string;
   onClick: () => void;
 }
-const ImageElement = (props: Props) => {
-  const { element, editMode, id, idx, className, onClick } = props;
 
+const ImageElement = React.forwardRef((props: Props, ref) => {
+  const { element, editMode, id, idx, className, onClick } = props;
   return (
-    <motion.div
-      drag
-      dragMomentum={false}
+    <div
       key={id}
       id={id}
+      ref={ref}
       className={'absolute ' + className}
       style={{
-        zIndex: element.pos.z,
         position: 'absolute',
-
         width: element.size?.width,
         height: element.size?.height,
-        transform:
-          `translate(${element.pos.x}px, ${element.pos.y}px)` +
-          `rotate(${element.rotate}deg)`,
       }}
     >
       <img
@@ -35,7 +29,7 @@ const ImageElement = (props: Props) => {
         className="cursor-pointer  text-white handle  noselect  w-full h-full"
         onClick={onClick}
       />
-    </motion.div>
+    </div>
   );
-};
+});
 export default ImageElement;

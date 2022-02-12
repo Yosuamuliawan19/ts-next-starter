@@ -4,6 +4,7 @@ import { fetchService } from '@helpers/fetch';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { getAuth, signInWithPopup, signOut } from 'firebase/auth';
 import { persist } from 'zustand/middleware';
+import { IMembershipStatus } from 'types';
 
 export const USER_STATUS = {
   AUTHENTICATED: 'AUTHENTICATED',
@@ -13,10 +14,21 @@ export const USER_STATUS = {
 
 const provider = new GoogleAuthProvider();
 
+interface AuthState {
+  user?: {
+    email: string;
+    image: string;
+    isEmailVerified: string;
+    membership_status: IMembershipStatus;
+  };
+  userStatus: string;
+  accessToken: string;
+  refreshToken: string;
+}
+
 export const useAuth = create(
   persist(
-    (set, get) => ({
-      count: 1,
+    (set, get): AuthState => ({
       // auth modal
       authModalVisible: false,
       openAuthModal: () => set((state) => ({ authModalVisible: true })),
@@ -40,32 +52,43 @@ export const useAuth = create(
             showSuccessMsg('Succesfully signed in');
             return {
               userStatus: USER_STATUS.AUTHENTICATED,
-              accessToken: res.data.Tokens.access,
-              refreshToken: res.data.Tokens.refresh,
+              accessToken: res.data.Tokens.access.token,
+              refreshToken: res.data.Tokens.refresh.token,
             };
           } catch (error) {
             showErrorMsg('Failed signing in: ' + error?.message);
           }
           return {};
         }),
-      signInEmail: (email: string, password: string) =>
-        set(async (state) => {
-          try {
-            const res = await fetchService('/v1/auth/login', 'POST', {
-              payload: { email, password },
-            });
-            if (!res?.ok) throw new Error(res.message);
-            showSuccessMsg('Succesfully signed in');
-            return {
-              userStatus: USER_STATUS.AUTHENTICATED,
-              accessToken: res.data.Tokens.access,
-              refreshToken: res.data.Tokens.refresh,
-            };
-          } catch (error) {
-            showErrorMsg('Failed signing in: ' + error?.message);
-          }
-          return {};
-        }),
+      signInEmail: async (
+        email: string,
+        password: string
+      ): Promise<boolean> => {
+        try {
+          const res = await fetchService('/v1/auth/login', 'POST', {
+            payload: { email, password },
+          });
+          if (!res?.ok) throw new Error(res.message);
+          const { isEmailVerified, membership_status } = res.data.user;
+          set(() => ({
+            user: {
+              email,
+              image: '',
+              isEmailVerified,
+              membership_status,
+            },
+            authModalVisible: false,
+            userStatus: USER_STATUS.AUTHENTICATED,
+            accessToken: res.data.tokens.access.token,
+            refreshToken: res.data.tokens.refresh.token,
+          }));
+          showSuccessMsg('Succesfully signed in');
+          return true;
+        } catch (error) {
+          showErrorMsg('Failed signing in: ' + error?.message);
+        }
+        return false;
+      },
       signOut: () =>
         set(async (state) => {
           if (state.userStatus === USER_STATUS.UNAUTHENTICATED) return {};
@@ -89,7 +112,6 @@ export const useAuth = create(
           set((state) => ({
             authModalVisible: false,
             user: {
-              name: user.displayName,
               email: user.email,
               image: user.photoURL,
               isEmailVerified: user.emailVerified,
@@ -107,6 +129,24 @@ export const useAuth = create(
           );
         }
       },
+      getUserDetail: (email: string, password: string) =>
+        set(async (state) => {
+          try {
+            const res = await fetchService('/v1/auth/login', 'POST', {
+              payload: { email, password },
+            });
+            if (!res?.ok) throw new Error(res.message);
+            showSuccessMsg('Succesfully signed in');
+            return {
+              userStatus: USER_STATUS.AUTHENTICATED,
+              accessToken: res.data.Tokens.access.token,
+              refreshToken: res.data.Tokens.refresh.token,
+            };
+          } catch (error) {
+            showErrorMsg('Failed signing in: ' + error?.message);
+          }
+          return {};
+        }),
     }),
     {
       name: 'auth-storage',

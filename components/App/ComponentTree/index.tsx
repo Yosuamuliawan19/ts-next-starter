@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Tree } from '@douyinfe/semi-ui';
-import {
-  IconFixedStroked,
-  IconSectionStroked,
-  IconAbsoluteStroked,
-  IconComponentStroked,
-} from '@douyinfe/semi-icons';
+import { Space, Tree } from '@douyinfe/semi-ui';
+import { IconFixedStroked } from '@douyinfe/semi-icons';
 import { usePage } from 'state/Page';
 import { ELEMENT_TYPES } from '@constants/';
-
+import { BiCube } from 'react-icons/bi';
+function truncate(input, length = 10) {
+  if (input.length > length) {
+    return input.substring(0, length) + '...';
+  }
+  return input;
+}
 export default function ComponentTree() {
   // const [selected, setSelected] = useState(new Set());
   const [selectedThroughParent, setSelectedThroughParent] = useState(new Set());
@@ -24,97 +25,18 @@ export default function ComponentTree() {
       ?.filter((data) => data.type !== ELEMENT_TYPES.NONE)
       .map((data, idx) => {
         return {
-          label: data?.type,
+          label: `${data.type} - ${truncate(data.value)}`,
           icon: (
             <IconFixedStroked
               style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
             />
           ),
-          key: `${data?.type}-${idx}`,
+          key: data.key,
           onClick: () => {},
         };
       }) || [];
-  const defaultTreeData = [
-    {
-      label: 'Fixed Black Button',
-      icon: (
-        <IconFixedStroked
-          style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-        />
-      ),
-      key: 'fix-btn-0',
-    },
-    {
-      label: 'Module',
-      key: 'module-0',
-      icon: (
-        <IconSectionStroked
-          style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-        />
-      ),
-      children: [
-        {
-          label: 'Free Components',
-          icon: (
-            <IconAbsoluteStroked
-              style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-            />
-          ),
-          key: 'free-compo-0',
-        },
-        {
-          label: 'Split Container',
-          icon: (
-            <IconSectionStroked
-              style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-            />
-          ),
-          key: 'split-col-0',
-          children: [
-            {
-              label: 'Button',
-              icon: (
-                <IconComponentStroked
-                  style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-                />
-              ),
-              key: 'btn-0',
-            },
-            {
-              label: 'Button',
-              icon: (
-                <IconComponentStroked
-                  style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-                />
-              ),
-              key: 'btn-1',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'Module',
-      icon: (
-        <IconSectionStroked
-          style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-        />
-      ),
-      key: 'module-1',
-      children: [
-        {
-          label: 'Custom Component',
-          icon: (
-            <IconComponentStroked
-              style={{ marginRight: 8, color: 'var(--semi-color-text-2)' }}
-            />
-          ),
-          key: 'cus-0',
-        },
-      ],
-    },
-  ];
-  const [treeData, setTreeData] = useState(defaultTreeData);
+
+  const [treeData, setTreeData] = useState(elementTreeData);
 
   const onDrop = (info) => {
     const { dropToGap, node, dragNode } = info;
@@ -182,7 +104,7 @@ export default function ComponentTree() {
   };
 
   const handleSelect = (key, bool, node) => {
-    setSelected(new Set([key]));
+    setSelected([key]);
     const descendantKeys = findDescendantKeys(node);
     setSelectedThroughParent(new Set(descendantKeys));
   };
@@ -211,10 +133,13 @@ export default function ComponentTree() {
       </li>
     );
   };
-  console.log('selected', selected);
 
   return (
     <>
+      <Space className="text-sm mx-2 ">
+        <BiCube />
+        Blocks {elementTreeData.length} / 150
+      </Space>
       <Tree
         treeData={elementTreeData}
         draggable

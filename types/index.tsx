@@ -49,3 +49,17 @@ export type IElement =
   | IImageElement
   | ISVGElement
   | IYoutubeElement;
+
+export type IMembershipStatus = 'free' | 'pro';
+
+export const MEMBERSHIP_STATUS = {
+  FREE: 'free',
+  PRO: 'pro',
+};
+
+export type IPage = {
+  id: string;
+  background: string;
+  url: string;
+  elements: IElement[];
+};

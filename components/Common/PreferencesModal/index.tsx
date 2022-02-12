@@ -1,16 +1,66 @@
 import ResponsiveModal from '@components/Common/ResponsiveModal';
+import { Space, Switch } from '@douyinfe/semi-ui';
 import React from 'react';
-import { Input, Space } from '@douyinfe/semi-ui';
-import { motion } from 'framer-motion';
+import { HiLightningBolt } from 'react-icons/hi';
+import { useAuth } from 'state/Auth';
 import { useUI } from 'state/UI';
+import { MEMBERSHIP_STATUS } from 'types';
+import { Descriptions } from '@douyinfe/semi-ui';
+import { AiFillDelete } from 'react-icons/ai';
 
 export default function AuthModal() {
-  const { preferencesModalVisible, setVisiblePreferencesModal } = useUI();
-  const [isRegister, setIsRegister] = React.useState(false);
-
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-
+  const {
+    preferencesModalVisible,
+    setVisiblePreferencesModal,
+    openUpgradeModal,
+  } = useUI();
+  const { user } = useAuth();
+  if (!user)
+    return (
+      <ResponsiveModal
+        title={'Preferences'}
+        visible={preferencesModalVisible}
+        setVisible={setVisiblePreferencesModal}
+      >
+        Please login
+      </ResponsiveModal>
+    );
+  const data = [
+    { key: 'Email', value: user.email },
+    { key: 'Email verification', value: user.isEmailVerified ? 'Yes' : 'No' },
+    {
+      key: 'Membership status',
+      value: (
+        <Space>
+          <div> Current plan: {user.membership_status}</div>
+          {user.membership_status === MEMBERSHIP_STATUS.FREE && (
+            <div
+              onClick={() => {
+                setVisiblePreferencesModal(false);
+                openUpgradeModal();
+              }}
+            >
+              <Space className="rounded-full py-1 px-4 bg-yellow-100 text-yellow-500 text-sm flex cursor-pointer hover:scale-105">
+                <HiLightningBolt /> Upgrade
+              </Space>
+            </div>
+          )}
+        </Space>
+      ),
+    },
+    { key: 'Page Usage', value: '0/15 pages used' },
+    { key: 'Blocks Usage', value: '0/7500 blocks used' },
+    {
+      key: 'Toolbar location',
+      value: (
+        <Space>
+          <div>Left</div>
+          <Switch defaultChecked={true}></Switch>
+          <div>Bottom</div>
+        </Space>
+      ),
+    },
+  ];
   return (
     <ResponsiveModal
       title={'Preferences'}
@@ -18,66 +68,17 @@ export default function AuthModal() {
       setVisible={setVisiblePreferencesModal}
     >
       <div className="mb-8">
-        <div className="mb-4 bold ">
-          <div className="mb-2">Email</div>
-          <Input
-            type="email"
-            value={username}
-            onChange={(val) => setUsername(val)}
-            showClear
-          />
-        </div>
-        <div className="mb-4 bold">
-          <div className="mb-2">Password</div>
-          <Input
-            value={password}
-            onChange={(val) => setPassword(val)}
-            showClear
-            mode="password"
-          />
-        </div>
-        <div className="justify-end flex">
-          <Space spacing={'loose'}>
-            {isRegister ? (
-              <div
-                onClick={() => setIsRegister(false)}
-                className="hover:underline cursor-pointer"
-              >
-                Login
-              </div>
-            ) : (
-              <div
-                onClick={() => setIsRegister(true)}
-                className="hover:underline cursor-pointer"
-              >
-                Sign up instead
-              </div>
-            )}
-
-            <motion.button
-              // onClick={() => signIn()}
-              whileHover={{ scale: 1.1, opacity: 0.85 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-black text-white text-sm bold px-8 py-2 rounded-full  font-display  hover:opacity-80"
-            >
-              Sign in
-            </motion.button>
-            <motion.button
-              // onClick={() => signIn()}
-              whileHover={{ scale: 1.1, opacity: 0.85 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-black text-white text-sm bold px-8 py-2 rounded-full  font-display hover:opacity-80"
-            >
-              <Space>
-                <img
-                  className="w-4 h-4"
-                  src="https://res.cloudinary.com/yosuam19/image/upload/v1644068068/portfolio/2991148_cyby6c.png"
-                />
-                Sign in with Google
-              </Space>
-            </motion.button>
+        <Descriptions data={data} />
+        <Space
+          vertical
+          className="bg-red-100 rounded-xl p-4 w-full mt-4 "
+          align="left"
+        >
+          <div className="bold text-black">Danger zone</div>
+          <Space className="rounded-full px-4 py-1 bg-red-500 text-red-100 text-sm flex cursor-pointer hover:scale-105 w-fit-content">
+            <AiFillDelete /> Delete account
           </Space>
-        </div>
+        </Space>
       </div>
     </ResponsiveModal>
   );

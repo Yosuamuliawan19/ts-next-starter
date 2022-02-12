@@ -1,8 +1,8 @@
-import { motion } from 'framer-motion';
 import React from 'react';
-// import { IButtonElement } from '@elements/types';
+import { IButtonElement } from '@elements/types';
+import { usePage } from 'state/Page';
+import { useUI } from 'state/UI';
 // import { getIconComponent } from '@elements/ElementComponent/Toolbar/ButtonManagement/IconPicker';
-
 interface Props {
   element: IButtonElement;
   editMode: boolean;
@@ -11,13 +11,17 @@ interface Props {
   className?: string;
   onClick: () => void;
 }
-const ButtonElement = (props: Props) => {
+
+const ButtonElement = React.forwardRef((props: Props, ref) => {
   const { element, editMode, id, idx, className, onClick } = props;
+  const editSelectedElement = usePage((state) => state.editSelectedElement);
+  const setIsDragging = useUI((state) => state.setIsDragging);
+
+  const position = { x: element.pos.x, y: element.pos.y };
 
   return (
-    <motion.button
-      drag
-      dragMomentum={false}
+    <div
+      ref={ref}
       id={id}
       key={id}
       style={{
@@ -28,9 +32,9 @@ const ButtonElement = (props: Props) => {
         position: 'absolute',
         width: element.size?.width,
         height: element.size?.height,
-        transform:
-          `translate(${element.pos.x}px, ${element.pos.y}px)` +
-          `rotate(${element.rotate}deg)`,
+        // transform:
+        //   `translate(${element.pos.x}px, ${element.pos.y}px)` +
+        //   `rotate(${element.rotate}deg)`,
       }}
       onClick={onClick}
       className={`${classes.button} ${className}`}
@@ -88,9 +92,9 @@ const ButtonElement = (props: Props) => {
           onChange={(e) => setInternalValue(e.target.value)}
         />
       )} */}
-    </motion.button>
+    </div>
   );
-};
+});
 export default ButtonElement;
 const classes = {
   button:

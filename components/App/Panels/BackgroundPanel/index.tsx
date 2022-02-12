@@ -4,6 +4,7 @@ import { usePage } from 'state/Page';
 import { HexColorPicker } from 'react-colorful';
 import React from 'react';
 import styles from './index.module.css';
+import { motion } from 'framer-motion';
 
 function isHexValid(hex: string) {
   return /^#[0-9A-F]{6}$/i.test(hex);
@@ -25,7 +26,7 @@ export default function BackgroundPanel() {
 
   return (
     <div className="w-80 border-2 border-gray-100 rounded-lg mb-4 ">
-      <Tabs type="line">
+      <Tabs type="button">
         <TabPane tab="Color" itemKey="1" className="px-2 h-60">
           <div className={styles.colorPicker}>
             <HexColorPicker
@@ -39,7 +40,9 @@ export default function BackgroundPanel() {
           <div className="flex flex-wrap overflow-y-scroll h-60">
             {GRADIENT_OPTIONS.map((data) => {
               return (
-                <div
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => setBackground(data)}
                   style={{ background: data }}
                   className={
@@ -48,7 +51,7 @@ export default function BackgroundPanel() {
                       ? 'border-white border-2 rounded-md'
                       : 'bg-gray-200')
                   }
-                ></div>
+                ></motion.div>
               );
             })}
           </div>
@@ -57,7 +60,9 @@ export default function BackgroundPanel() {
           <div className="flex flex-wrap  overflow-y-scroll h-60">
             {IMAGE_OPTIONS.map((data) => {
               return (
-                <div
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
                   onClick={() => setBackground(data)}
                   style={{ background: data, backgroundSize: 'cover' }}
                   className={
@@ -66,7 +71,7 @@ export default function BackgroundPanel() {
                       ? 'border-white border-2 rounded-md'
                       : 'bg-gray-200')
                   }
-                ></div>
+                ></motion.div>
               );
             })}
           </div>

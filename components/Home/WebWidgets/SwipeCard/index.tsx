@@ -84,7 +84,7 @@ const SwipeCard = () => {
         },
         ...cards.slice(0, cards.length - 1),
       ]);
-    }, 200);
+    }, 100);
   };
   const onDragEnd = (info) => {
     if (dragStart.axis === 'x') {

@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import TabExperiment from '../WebWidgets/TabExperiment';
 
 export function ExamplesSection() {
   return (
     <>
       <div className="text-2xl mb-4">Examples</div>
-      <div className="flex mb-6 overflow-x-scroll w-min-content">
+      <TabExperiment />
+      <div className="flex mt-4 mb-6 overflow-x-scroll w-min-content">
         {['a', 'b', 'c', 'd', 'e'].map((data) => {
           return (
             <motion.div

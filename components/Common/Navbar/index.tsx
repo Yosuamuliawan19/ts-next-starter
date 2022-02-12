@@ -22,9 +22,12 @@ export default function ExperienceSection() {
           }
         >
           <Link href="/">
-            <div className="bold font-display hover:underline  hover:cursor-pointer">
+            <Space className="bold font-display hover:underline  hover:cursor-pointer">
               Page Platypus
-            </div>
+              <div className="rounded-md px-2 py-1 py-2text-md bg-green-100 text-green-500  text-sm text-white">
+                Beta
+              </div>
+            </Space>
           </Link>
           <div className="flex items-center">
             <Link href="/explore">
@@ -82,7 +85,7 @@ export default function ExperienceSection() {
               </div>
             </Dropdown>
           </div>
-          <Space spacing={'medium'} align="center" className="hidden md:block">
+          <Space spacing={'medium'} align="center" className="hidden md:flex">
             <DarkToggle />
 
             {userStatus !== USER_STATUS.AUTHENTICATED ? (

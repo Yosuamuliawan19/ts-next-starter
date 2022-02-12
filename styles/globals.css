@@ -540,7 +540,8 @@ button:focus {
 }
 
 .semi-tabs-tab {
-  margin-left: 14px !important;
+  /* margin-left: 14px !important; */
+  margin: 4px !important;
   margin-right: 6px !important;
-  padding: 12px 4px !important;
+  padding: 4px 12px !important;
 }
