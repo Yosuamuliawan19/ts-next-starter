@@ -45,7 +45,7 @@ export function HeroSection() {
             <img
               style={{ width: '400px' }}
               src={
-                'https://res.cloudinary.com/yosuam19/image/upload/v1644643845/polaroid/Shape-1_rspnsz.png'
+                'https://res.cloudinary.com/yosuam19/image/upload/v1644651143/polaroid/Shape-1_aeujyr.png'
               }
             />
           </div>
@@ -53,7 +53,7 @@ export function HeroSection() {
             <img
               style={{ width: '400px' }}
               src={
-                'https://res.cloudinary.com/yosuam19/image/upload/v1644643848/polaroid/Shape_l0pyop.png'
+                'https://res.cloudinary.com/yosuam19/image/upload/v1644651144/polaroid/Shape_t6wzyi.png'
               }
             />
           </div>
